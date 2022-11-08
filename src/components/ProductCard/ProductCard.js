@@ -1,5 +1,9 @@
 import "./ProductCard.css";
+import { useContext } from "react";
+import { BasketContext } from "../../context/basket-context";
+
 export const ProductCard = ({ product }) => {
+  const { addToBasket } = useContext(BasketContext);
   return (
     <section className="product-card">
       <h2>{product.name}</h2>
@@ -9,7 +13,14 @@ export const ProductCard = ({ product }) => {
           currency: "EUR",
         })}
       </p>
-      <button>Add to Cart</button>
+
+      <button
+        onClick={() => {
+          addToBasket(product);
+        }}
+      >
+        Add to Cart
+      </button>
     </section>
   );
 };

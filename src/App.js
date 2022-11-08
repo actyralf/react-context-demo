@@ -5,6 +5,7 @@ import { Contact } from "./pages/Contact/Contact";
 import { Products } from "./pages/Products/Products";
 import { Nav } from "./components/Nav/Nav";
 import { initialProducts } from "./data/products";
+import { BasketContextProvider } from "./context/basket-context";
 
 function App() {
   // eslint-disable-next-line
@@ -23,14 +24,16 @@ function App() {
     );
 
   return (
-    <div className="App">
-      <Nav
-        onPageChange={(newPage) => {
-          setCurrentPage(newPage);
-        }}
-      />
-      {pageComponent}
-    </div>
+    <BasketContextProvider>
+      <div className="App">
+        <Nav
+          onPageChange={(newPage) => {
+            setCurrentPage(newPage);
+          }}
+        />
+        {pageComponent}
+      </div>
+    </BasketContextProvider>
   );
 }
 

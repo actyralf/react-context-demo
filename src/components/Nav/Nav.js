@@ -1,6 +1,9 @@
 import "./Nav.css";
+import { useContext } from "react";
+import { BasketContext } from "../../context/basket-context";
 
 export const Nav = ({ onPageChange = () => {} }) => {
+  const { productsInBasket } = useContext(BasketContext);
   return (
     <nav>
       <ul className="nav-list">
@@ -34,7 +37,7 @@ export const Nav = ({ onPageChange = () => {} }) => {
               onPageChange("basket");
             }}
           >
-            Basket
+            Basket ({productsInBasket.length})
           </a>
         </li>
       </ul>
