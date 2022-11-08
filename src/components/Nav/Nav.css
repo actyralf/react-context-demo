@@ -1,0 +1,9 @@
+.nav-list {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+}
+.nav-list > li > a {
+  padding: 2em;
+  text-decoration: none;
+}
